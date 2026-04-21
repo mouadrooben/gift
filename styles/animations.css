@@ -14,28 +14,19 @@
     }
 }
 
-/* Typing Animation */
+/* Modal message: fade-in (avoids width “typing” line-wrap glitch) */
 .typing-animation {
-    overflow: hidden;
-    animation: typing 3s steps(60, end), blinkCaret 0.75s step-end infinite;
+    animation: fadeInText 0.5s ease-out forwards;
 }
 
-@keyframes typing {
+@keyframes fadeInText {
     from {
-        width: 0;
+        opacity: 0;
+        transform: translateY(8px);
     }
     to {
-        width: 100%;
-    }
-}
-
-@keyframes blinkCaret {
-    from,
-    to {
-        border-color: transparent;
-    }
-    50% {
-        border-color: #7a9d7b;
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
