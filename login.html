@@ -15,6 +15,7 @@
         </div>
 
         <div class="login-card">
+            <button type="button" id="hintCornerBtn" class="hint-corner-btn" aria-label="Show password hint" title="Hint">🌙</button>
             <!-- Floating leaves -->
             <div class="leaf leaf-1">🍃</div>
             <div class="leaf leaf-2">🍂</div>
@@ -22,6 +23,7 @@
 
             <div class="login-content">
                 <h1 class="title">🌙 Welcome</h1>
+                <p class="tagline">A site just for your beautiful eyes 💙🌙</p>
                 <p class="subtitle">This space is only for you…</p>
 
                 <form id="loginForm" class="login-form">
@@ -36,11 +38,23 @@
                 </form>
 
                 <p id="errorMsg" class="error-message"></p>
-<p class="hint-text">💡 Hint: Think of someone gentle and the night sky... 🌹 😊 💖</p>            </div>
+                <p class="hint-text">💡 Hint: think of something that looks like you and combine it with your nickname !! ((:<br>(if you didn't know the password, press the button on the right corner)</p>
+            </div>
 
             <div class="background-decoration">
                 <div class="forest-bg"></div>
             </div>
+        </div>
+    </div>
+
+    <div id="hintPopup" class="hint-popup hidden" aria-hidden="true">
+        <div class="hint-popup-backdrop" id="hintPopupBackdrop"></div>
+        <div class="hint-popup-panel" role="dialog" aria-modal="true" aria-labelledby="hintPopupLabel">
+            <button type="button" id="hintPopupClose" class="hint-popup-close" aria-label="Close">&times;</button>
+            <span id="hintPopupLabel" class="visually-hidden">Password hint</span>
+            <img src="assets/images/full-moon-with-stars-in-dark-sky.webp" alt="" class="hint-popup-moon" width="160" height="160">
+            <div class="hint-popup-arrow" aria-hidden="true">↓</div>
+            <p class="hint-popup-password">eve the moon</p>
         </div>
     </div>
 
