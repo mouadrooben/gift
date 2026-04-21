@@ -25,9 +25,41 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     }
 });
 
-// Check if already authenticated
+// Check if already authenticated + hint popup
 document.addEventListener('DOMContentLoaded', function() {
     if (sessionStorage.getItem('authenticated') === 'true') {
         window.location.href = 'index.html';
+        return;
     }
+
+    const hintPopup = document.getElementById('hintPopup');
+    const hintCornerBtn = document.getElementById('hintCornerBtn');
+    const hintPopupClose = document.getElementById('hintPopupClose');
+    const hintPopupBackdrop = document.getElementById('hintPopupBackdrop');
+
+    function openHintPopup() {
+        if (!hintPopup) return;
+        hintPopup.classList.remove('hidden');
+        hintPopup.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        hintPopupClose.focus();
+    }
+
+    function closeHintPopup() {
+        if (!hintPopup) return;
+        hintPopup.classList.add('hidden');
+        hintPopup.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (hintCornerBtn) hintCornerBtn.focus();
+    }
+
+    if (hintCornerBtn) hintCornerBtn.addEventListener('click', openHintPopup);
+    if (hintPopupClose) hintPopupClose.addEventListener('click', closeHintPopup);
+    if (hintPopupBackdrop) hintPopupBackdrop.addEventListener('click', closeHintPopup);
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && hintPopup && !hintPopup.classList.contains('hidden')) {
+            closeHintPopup();
+        }
+    });
 });
