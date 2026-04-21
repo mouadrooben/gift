@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Space</title>
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Background with moon & stars -->
+        <div class="login-background">
+            <img src="assets/images/full-moon-with-stars-in-dark-sky.webp" alt="Moon and stars" class="bg-image">
+            <div class="bg-overlay"></div>
+        </div>
+
+        <div class="login-card">
+            <!-- Floating leaves -->
+            <div class="leaf leaf-1">🍃</div>
+            <div class="leaf leaf-2">🍂</div>
+            <div class="leaf leaf-3">🍃</div>
+
+            <div class="login-content">
+                <h1 class="title">🌙 Welcome</h1>
+                <p class="subtitle">This space is only for you…</p>
+
+                <form id="loginForm" class="login-form">
+                    <input 
+                        type="password" 
+                        id="passwordInput" 
+                        placeholder="Enter the password" 
+                        class="password-input"
+                        autocomplete="off"
+                    >
+                    <button type="submit" class="login-btn">Enter</button>
+                </form>
+
+                <p id="errorMsg" class="error-message"></p>
+<p class="hint-text">💡 Hint: Think of someone gentle and the night sky... 🌹 😊 💖</p>            </div>
+
+            <div class="background-decoration">
+                <div class="forest-bg"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
