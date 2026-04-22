@@ -208,15 +208,21 @@ secretBtn.addEventListener('click', function() {
 popupClose.addEventListener('click', function() {
     secretPopup.classList.add('hidden');
     document.body.style.overflow = 'auto';
-    // Reset surprise content
-    surpriseContent.classList.add('hidden');
+    // Reset surprise content for next time
+    setTimeout(() => {
+        surpriseContent.classList.add('hidden');
+        revealBtn.style.display = 'block';
+    }, 300);
 });
 
 popupOverlay.addEventListener('click', function() {
     secretPopup.classList.add('hidden');
     document.body.style.overflow = 'auto';
-    // Reset surprise content
-    surpriseContent.classList.add('hidden');
+    // Reset surprise content for next time
+    setTimeout(() => {
+        surpriseContent.classList.add('hidden');
+        revealBtn.style.display = 'block';
+    }, 300);
 });
 
 // Reveal surprise button
