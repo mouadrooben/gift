@@ -21,10 +21,16 @@ html {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1a3d0a 0%, #2d5016 50%, #1f5510 100%);
+    background-image: linear-gradient(135deg, rgba(26, 61, 10, 0.7) 0%, rgba(45, 80, 22, 0.7) 50%, rgba(31, 85, 16, 0.7) 100%), 
+                      url('assets/images/mmmmm.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--dark-green);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 /* NAVBAR */
@@ -52,6 +58,7 @@ body {
     font-weight: 700;
     color: var(--beige);
     letter-spacing: 1px;
+    margin-right: auto;
 }
 
 .nav-menu {
@@ -1052,5 +1059,227 @@ body {
 
     .surprise-text {
         font-size: 1em;
+    }
+}
+/* ============================================
+   THEME SELECTOR
+   ============================================ */
+
+.theme-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+    animation: fadeIn 0.4s ease;
+}
+
+.theme-modal-content {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 20px;
+    padding: 50px 40px;
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+}
+
+.theme-modal-content h2 {
+    color: #f5f5dc;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.theme-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.theme-card:hover {
+    transform: translateY(-10px);
+    border-color: #f5f5dc;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 40px rgba(245, 245, 220, 0.2);
+}
+
+.theme-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.theme-card h3 {
+    color: #f5f5dc;
+    font-size: 1.3em;
+    margin: 0;
+}
+
+.theme-card p {
+    color: #a8c8a9;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+/* ============================================
+   THEME COLORS
+   ============================================ */
+
+/* Default: Black & Green (current) - already defined */
+
+/* Dark Red & Black Theme */
+body.theme-dark-red {
+    --dark-green: #1a0a0a;
+    --green: #2d1616;
+    --light-green: #3d2222;
+    --soft-green: #8b6b6b;
+    --pale-green: #a88a8a;
+}
+
+body.theme-dark-red .navbar {
+    background: rgba(45, 22, 22, 0.95);
+}
+
+body.theme-dark-red .login-card {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+body.theme-dark-red .letter-card {
+    border-left: 5px solid #c41e3a;
+}
+
+body.theme-dark-red .read-btn,
+body.theme-dark-red .login-btn,
+body.theme-dark-red .reveal-btn {
+    background: linear-gradient(135deg, #8b0000 0%, #c41e3a 100%);
+}
+
+body.theme-dark-red .read-btn:hover,
+body.theme-dark-red .login-btn:hover,
+body.theme-dark-red .reveal-btn:hover {
+    box-shadow: 0 8px 20px rgba(196, 30, 58, 0.4);
+}
+
+/* Red & White Theme */
+body.theme-red-white {
+    --dark-green: #1a0a0a;
+    --green: #c41e3a;
+    --light-green: #e63946;
+    --soft-green: #d4444d;
+    --pale-green: #f1faee;
+}
+
+body.theme-red-white {
+    background: linear-gradient(135deg, #f1faee 0%, #ffffff 50%, #f1faee 100%);
+}
+
+body.theme-red-white .navbar {
+    background: rgba(196, 30, 58, 0.95);
+}
+
+body.theme-red-white .nav-logo,
+body.theme-red-white .nav-link {
+    color: #ffffff;
+}
+
+body.theme-red-white .letter-card {
+    background: rgba(196, 30, 58, 0.15);
+    border-left: 5px solid #c41e3a;
+}
+
+body.theme-red-white .letter-card h3 {
+    color: #c41e3a;
+}
+
+body.theme-red-white .read-btn,
+body.theme-red-white .login-btn,
+body.theme-red-white .reveal-btn {
+    background: linear-gradient(135deg, #c41e3a 0%, #e63946 100%);
+}
+
+/* Beige & Brown Theme */
+body.theme-beige-brown {
+    --dark-green: #3d2817;
+    --green: #6b5344;
+    --light-green: #8b7355;
+    --soft-green: #a0826d;
+    --pale-green: #c9b8a8;
+}
+
+body.theme-beige-brown {
+    background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 50%, #f5f0e8 100%);
+}
+
+body.theme-beige-brown .navbar {
+    background: rgba(59, 40, 23, 0.95);
+}
+
+body.theme-beige-brown .letter-card {
+    background: rgba(200, 170, 140, 0.15);
+    border-left: 5px solid #8b7355;
+}
+
+body.theme-beige-brown .letter-card h3 {
+    color: #3d2817;
+}
+
+body.theme-beige-brown .read-btn,
+body.theme-beige-brown .login-btn,
+body.theme-beige-brown .reveal-btn {
+    background: linear-gradient(135deg, #6b5344 0%, #8b7355 100%);
+}
+
+body.theme-beige-brown .section-title {
+    color: #3d2817;
+}
+
+body.theme-beige-brown .hero-title {
+    color: #3d2817;
+}
+
+body.theme-beige-brown .hero-subtitle {
+    color: #6b5344;
+}
+
+/* Hide theme modal when not needed */
+.theme-modal.hidden {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .theme-modal-content {
+        padding: 30px 20px;
+    }
+
+    .theme-modal-content h2 {
+        font-size: 1.8em;
+    }
+
+    .theme-options {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
