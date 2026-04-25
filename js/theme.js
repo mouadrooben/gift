@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const themeModal = document.getElementById('themeModal');
     const themeCards = document.querySelectorAll('.theme-card');
+    const themeOverlay = document.querySelector('.theme-modal');
     
     // Load saved theme or show modal
     const savedTheme = localStorage.getItem('selectedTheme');
@@ -24,13 +25,28 @@ document.addEventListener('DOMContentLoaded', function() {
             themeModal.classList.add('hidden');
         });
     });
+    
+    // Close modal when clicking outside (on overlay) but NOT on the content
+    if (themeOverlay) {
+        themeOverlay.addEventListener('click', function(e) {
+            // Only close if clicking on the overlay itself, not the content
+            if (e.target === themeOverlay) {
+                themeModal.classList.add('hidden');
+            }
+        });
+    }
 });
 
 function applyTheme(themeName) {
-    // Remove all theme classes
-    document.body.classList.remove('theme-dark-red', 'theme-red-white', 'theme-beige-brown');
+    // Remove ALL theme classes first
+    document.body.classList.remove(
+        'theme-dark-red', 
+        'theme-red-white', 
+        'theme-beige-brown',
+        'theme-green-black'
+    );
     
-    // Add selected theme class
+    // Add selected theme class (only if not default)
     if (themeName !== 'default') {
         document.body.classList.add('theme-' + themeName);
     }
